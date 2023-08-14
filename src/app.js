@@ -1,9 +1,9 @@
 "use strict";
-const express = require("express");
-const morgan = require("morgan");
-const helmet = require("helmet");
-const compression = require("compression");
-const app = express();
+import express  from"express";
+import morgan  from"morgan";
+import helmet  from"helmet";
+import compression  from"compression";
+const  app = express();
 
 // init middlewares
 app.use(morgan("dev"));
@@ -15,7 +15,7 @@ app.use(compression());
 require("./dbs/init.mongodb");
 
 // init routes
+app.use("/", require("./routes"));
 
 // handling error
-
-module.exports = app;
+export default  app;
