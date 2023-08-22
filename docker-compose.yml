@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo:6.0
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 10m
+        max-file: "3"
+        labels: "dev_status"
+        env: "os"
+    volumes:
+      - ./mongo/config:/data/configdb
+      - ./mongo/data:/data/db
+      - ./mongo/logs:/var/log/mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - freelancer
+
+volumes:
+  mongo_data:
+networks:
+  freelancer:
+    driver: bridge

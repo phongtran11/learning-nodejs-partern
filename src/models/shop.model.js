@@ -1,4 +1,4 @@
-const { model, Schema, Types } = require("mongoose");
+import { model, Schema } from "mongoose";
 
 const DOCUMENT_NAME = "Shop";
 const COLLECTION_NAME = "shops";
@@ -36,7 +36,7 @@ const shopSchema = new Schema(
   {
     timestamps: true,
     collection: COLLECTION_NAME,
-  },
+  }
 );
 
-module.exports = model(DOCUMENT_NAME, shopSchema);
+export const shopModel = model(DOCUMENT_NAME, shopSchema);

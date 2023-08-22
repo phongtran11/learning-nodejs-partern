@@ -1,11 +1,13 @@
 "use strict";
-const mongoose = require("mongoose");
-const { countConnect } = require("../helper/check.connect");
-const config = require("../config/config");
 
-const connectionString = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
+import mongoose from "mongoose";
 
-class Database {
+import { countConnect } from "../helper/check.connect.js";
+import { appConfig } from "../config/config.js";
+
+const connectionString = `mongodb://${appConfig.db.host}:${appConfig.db.port}/${appConfig.db.name}`;
+
+export class Database {
   constructor() {
     this.connect();
   }
@@ -34,7 +36,3 @@ class Database {
       .catch((err) => console.log("Error connect!"));
   }
 }
-
-const instanceMongodb = Database.getInstance();
-
-module.exports = instanceMongodb;

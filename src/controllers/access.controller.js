@@ -1,13 +1,16 @@
 "use strict";
 
+import { AccessService } from "../services/access.service.js";
 class AccessController {
   signUp = async (req, res, next) => {
     try {
-      console.log(req.body);
+      const response = await AccessService.signUp(req.body);
+
+      return res.status(201).json(response);
     } catch (error) {
       next(error);
     }
   };
 }
 
-module.exports = new AccessController();
+export const accessController = new AccessController();

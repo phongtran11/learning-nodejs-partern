@@ -1,7 +1,8 @@
 "use strict";
-const mongoose = require("mongoose");
-const os = require("os");
-const process = require("process");
+
+import mongoose from "mongoose";
+import os from "os";
+import process from "process";
 
 const _FIVE_SECONDS = 1000;
 
@@ -28,7 +29,4 @@ const checkOverload = () => {
   }, _FIVE_SECONDS);
 };
 
-module.exports = {
-  countConnect,
-  checkOverload,
-};
+export { countConnect, checkOverload };

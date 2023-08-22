@@ -23,4 +23,4 @@ const prod = {
 const config = { dev, prod };
 const env = process.env.NODE_ENV || "dev";
 console.log(`ENV RUNNING: ${env}`);
-module.exports = config[env];
+export const appConfig = config[env];
